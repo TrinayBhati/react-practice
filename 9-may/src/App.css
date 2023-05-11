@@ -41,3 +41,13 @@
   color: #888;
 }
  */
+.card{
+  border: 5px solid green;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+  margin: 20px 30px;
+}
+.card:hover{
+  background-color: cyan;
+  scale: 1.05;
+}

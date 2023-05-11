@@ -15,6 +15,20 @@ function App() {
   function handleBashClick(para){
     console.log(para)
   }
+  const users = [{
+    id:1, name:"Trinay", age:23
+  },
+  {
+    id:2, name:"Shourya", age:8
+  },
+  {
+    id:3, name:"Papu", age:100
+  }
+  ];
+
+  function handleCardClick({name, age}){
+    console.log(`${name}'s card clicked`)
+  }
 
   return (
     <>
@@ -37,6 +51,20 @@ function App() {
       <button onClick={(event)=>{
         handleBashClick("that's why he's the goat");
       }}>Bash</button>
+      {
+        users.map(user => {
+          return(
+            <div onClick={()=>{
+              handleCardClick({name:user.name, age:user.age})
+            }} className="card">
+              <h2>Name : {user.name}</h2>
+              <h3>Age : {user.age}</h3>
+              <h5>id : {user.id}</h5>
+            </div>
+            )
+        }
+      )}
+
     </>
   )
 }
