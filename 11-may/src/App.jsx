@@ -9,8 +9,8 @@ import { useState } from "react";
 // state is smthn that can change overtime
 // state is just when smthn changes overtime within a component, when component needs to remember smthn that is state
 // before 2019 if we wanted to have states, only choice was to use class, but later on we can now use function components using react hooks.
-// react hook sare simply functions which enable us to hook into core react features using function component.
-// first react hook in this file -> useState (all hooks must start with use n camel case)
+// react hooks are simply functions which enable us to hook into core react features using function component.
+// first react hook in this file -> useState (all hooks must start with "use" n camel case)
 /*
   function useState(initialValue){
     function disaptch(){}
@@ -48,7 +48,7 @@ function App() {
 
     // here we'll update count using setCount
     // setCount(69);
-    setCount(count+1);
+    setCount(count++);
   }
   const handleChange = () =>{
     setStatus("ON");
