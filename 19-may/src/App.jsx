@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-function App() {
-
+/*function App() {
 
   const[formDetails, setFormDetails] = useState({
     firstName : "",
@@ -14,16 +13,55 @@ function App() {
     firstNameError : "", 
     secondNameError : "",
     emailError : "",
-  })
+  });
 
-  const handleFormInputs = (e)=>{
-      const field = e.target.name;
-      const value = e.target.value;
-let newFormDetails = {
-        ...formDetails, [field] : value, // field will replace it with the rhs value of field from line 13
-      }
-    setFormDetails(newFormDetails);
+  // const onSubmit = () =>{
+  //   const{firstName, secondName, email} = formDetails;
+
+  //   const firstNameError = firstName.length < 3 && "First Name must contain atleast 3 characters"
+  //   const secondNameError = secondName.length < 3 && "Second Name must contain atleast 3 characters"
+  //   const emailError = email.length < 3 && "Email must contain atleast 3 characters"
+
+  //   if(firstNameError || secondNameError || emailError){ // if any of these is true
+  //      setFormErrors({
+  //      firstNameError,
+  //      secondNameError,
+  //      emailError,
+  //    });
+  //   }
+
+  // }
+
+  // const handleFormInputs = (e)=>{
+  //     const field = e.target.name;
+  //     const value = e.target.value;
+  // let newFormDetails = {
+  //       ...formDetails, [field] : value, // field will replace it with the rhs value of field from line 13
+  //     }
+  //   setFormDetails(newFormDetails);
+  //   }
+
+  const handleFormInputs = (e) =>{
+    const field = e.target.name;
+    const value = e.target.value;
+
+    const firstNameError = field == "firstName" && value.length < 3 && "First Name must contain atleast 3 characters"
+    const secondNameError = field == "secondName" && value.length < 3 && "Second Name must contain atleast 3 characters"
+    const emailError = field == "email" && value.length < 3 && "Email must contain atleast 3 characters"
+
+    if(firstNameError || secondNameError || emailError){
+      setFormErrors({
+        firstNameError,
+        secondNameError,
+        emailError,
+      });
+
     }
+    setFormDetails({
+      ...formDetails,
+      [field]: value,
+    });
+  }
 
   return (
     <>
@@ -61,9 +99,29 @@ let newFormDetails = {
         </div>
         <label>Submit: </label>
         <button 
-           
+        // onClick={onSubmit}
         >Submit</button>
       </div>
+    </>
+  )
+}*/
+
+// Asynchrounous State Updates
+
+function App() {
+
+  const [count, setCount] = useState(0);
+
+  const handleCount = () =>{
+    let nextCount = count+1
+    setCount(nextCount);
+    console.log(nextCount);
+  }
+
+  return (
+    <>
+    <h2>you've clicked {count} times</h2>
+    <button onClick={handleCount}>Click Me</button>
     </>
   )
 }

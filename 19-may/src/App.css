@@ -50,3 +50,10 @@
   border: 2px solid cyan;
   border-radius: 8px;
 }
+p{
+  color: red;
+  font-size: 15px;
+  margin: 0;
+  margin-top: 10px;
+
+}
