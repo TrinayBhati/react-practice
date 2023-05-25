@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-/*function App() {
+function App() {
 
   const[formDetails, setFormDetails] = useState({
     firstName : "",
@@ -104,11 +104,11 @@ import './App.css'
       </div>
     </>
   )
-}*/
+}
 
 // Asynchrounous State Updates
 
-function App() {
+/*function App() {
 
   const [count, setCount] = useState(0);
 
@@ -124,6 +124,6 @@ function App() {
     <button onClick={handleCount}>Click Me</button>
     </>
   )
-}
+}*/
 
 export default App
