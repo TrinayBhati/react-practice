@@ -1,0 +1,16 @@
+
+context
+step 1 - create the context
+step 2 - create the provider
+step 3 - consumer
+
+    userCOntext
+    themeContext
+
+const UserNameContext = createContext();
+UserNameContext has UserNameContext.provider
+
+<UserNameContext> // provider
+    <ComponentA /> // this is consumer
+</UserNameContext>
+
