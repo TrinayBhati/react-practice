@@ -1,3 +1,27 @@
+// react is a library alone, when combined with routing, animation libraries then it can be called as a framework.
+// angular is a framework as it comes with routing, animation libraries and a lot of other things.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // hooks
     // always start with use
     // always call them on the top level of a functional component
