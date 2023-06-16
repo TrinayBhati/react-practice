@@ -48,3 +48,40 @@ Array of dependencies
 // 3. useReducer
     
 
+1. Action Creator -> function, returns Action
+2. Action -> object, gotta have type property
+3. Dispatch -> function, takes action as args and returns to all the reducer
+4. Reducers 
+5. State -> combination of all the reducer data
+
+
+
+
+
+
+
+
+
+<div id="main">
+    <span className="active"> Hello </span>
+    <span > World </span>
+</div>
+
+React.createElemet("div", {id : "main"
+    children : [
+        React.createElemet("span", {className : "active"}, "Hello"),
+        React.createElemet("span", null , "World"),
+    ]
+}, null)
+
+{
+    type : "div",
+    key : null,
+    ref : null,
+    props : {id : "main", children},
+    _owner : null,
+    _store : {}
+}
+
+virtual dom is a lightweight representation of dom
+    virtual dom consists od react elements, unlike dom which is made up of html elements
