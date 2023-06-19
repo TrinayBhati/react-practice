@@ -22,9 +22,9 @@ const Home = () => {
     setBlogs(newBlogs);
   };
 
-//   useEffect(() => {
-//     console.log(blog);
-//   });
+  useEffect(() => {
+    console.log("blog");
+  });
 
   return (
     <div className="home">

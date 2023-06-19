@@ -1,21 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
 
 /* base styles */
 * {
   margin: 0;
   font-family: "Quicksand";
-  color: #333;
+  color: #C69749;
+  background-color: #1B262C;
+}
+button{
+  background-color: #A3C7D6;
+  border-radius: 10px;
+  color: #2C3333;
+  font-weight: bold;
 }
 .navbar {
   padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: center; 
   max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #FFA41B;
+}
+.navbar a{
+font-size: 20PX;
+font-weight: 600;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: #FFA41B;
+  font-weight: bold;
+  font-size: 33px;
+  font-family: "Pacifico";
 }
 .navbar .links {
   margin-left: auto;
@@ -26,25 +43,35 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #3282B8;
 }
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+
 }
 
 /* blog previews / list */
+.blog-preview p{
+  font-family: Roboto;
+  padding-bottom: 5px;
+}
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+  border: 3px solid #3282B8;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+ 
 }
 .blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 5px 7px #3282B8;
+  border-radius: 15px;
+  transform: scale(1.03);
 }
 .blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 23px;
+  color: #3282B8;
   margin-bottom: 8px;
 }
