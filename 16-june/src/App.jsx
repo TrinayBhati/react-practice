@@ -48,7 +48,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div>
+      <div >
         <button style={BUTTON_WRAPPER_STYLES} onClick={() => setIsOpen(true)}>
           Open Modal
         </button>
