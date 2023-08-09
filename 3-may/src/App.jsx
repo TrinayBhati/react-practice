@@ -79,15 +79,15 @@ const App = ()=>{
     <div className="card">
       <h2>Hello</h2>
 
-      {/*<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3548H96dTNpUBbwPng9eb9Pi_OYoJEHFJ1A&usqp=CAU" height={200} width={200}/>
-      <Avatar src="https://nftevening.com/wp-content/uploads/2021/09/bored-ape-yacht-club-bayc-roadmap-2.0-version.png" height={100} width={100}/>*/}
+      <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3548H96dTNpUBbwPng9eb9Pi_OYoJEHFJ1A&usqp=CAU" height={200} width={200}/>
+      <Avatar src="https://nftevening.com/wp-content/uploads/2021/09/bored-ape-yacht-club-bayc-roadmap-2.0-version.png" height={100} width={100}/>
 
-      {/*<Avatar
+      <Avatar
       size="m" 
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3548H96dTNpUBbwPng9eb9Pi_OYoJEHFJ1A&usqp=CAU" />
       <Avatar
       size="l" 
-      src="https://nftevening.com/wp-content/uploads/2021/09/bored-ape-yacht-club-bayc-roadmap-2.0-version.png" />*/}
+      src="https://nftevening.com/wp-content/uploads/2021/09/bored-ape-yacht-club-bayc-roadmap-2.0-version.png" />
 
       <ul>
         {/*{result}*/}

@@ -73,7 +73,7 @@ const ProductCard = (props) => {
 // };
 
 // Behind the scenes :
-/* 
+ 
 <ProductCard
   productName="boAT Rockerz"
   description="White Purity, On the Ear"
@@ -84,7 +84,7 @@ props -> {
   description: "White Purity, On the Ear"
 }
 props will be passed as an argument to the ProductCard component
-*/
+
 
 // Just like how you call the same function again
 // by passing in different arguments ->
@@ -119,56 +119,56 @@ props will be passed as an argument to the ProductCard component
 
 /* ------------------ Props - Types ----------------- */
 
-// const UserProfile = (props) => {
-//   // Nested desctructuring
-//   const {
-//     user: { name, age, isMarried, hobbies, location },
-//   } = props;
+const UserProfile = (props) => {
+  // Nested desctructuring
+  const {
+    user: { name, age, isMarried, hobbies, location },
+  } = props;
 
-//   // One way of nested destructuring
-//   // const { name, age, isMarried, hobbies, location } = user;
+  // One way of nested destructuring
+  // const { name, age, isMarried, hobbies, location } = user;
 
-//   // Comments OUTSIDE JSX
-//   // first way
-//   /* second way */
+  // Comments OUTSIDE JSX
+  // first way
+  /* second way */
 
-//   return (
-//     <div>
-//       <p>Name : {name}</p>
-//       <p>Age : {age} </p>
-//       {/* Comments INSIDE JSX */}
-//       {/* Conditionally rendering the paragraph tag based on isMarried prop */}
-//       {isMarried && <p>Married: Yes </p>}
-//       <p>Hobby : {hobbies[0]}</p>
-//       <p>City : {location.city}</p>
-//       <p>Country : {location.country}</p>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <p>Name : {name}</p>
+      <p>Age : {age} </p>
+      {/* Comments INSIDE JSX */}
+      {/* Conditionally rendering the paragraph tag based on isMarried prop */}
+      {isMarried && <p>Married: Yes </p>}
+      <p>Hobby : {hobbies[0]}</p>
+      <p>City : {location.city}</p>
+      <p>Country : {location.country}</p>
+    </div>
+  );
+};
 
-// export const App = () => {
-//   return (
-//     <main>
-//       <UserProfile
-//         // If you want to send individual props :
-//         // userName="Eric"
-//         // age={20}
-//         // isMarried={true}
-//         // hobbies={["Singing", "Sleeping"]}
-//         // userLocation={{ city: "Paris", country: "France" }}
+export const App = () => {
+  return (
+    <main>
+      <UserProfile
+        // If you want to send individual props :
+        // userName="Eric"
+        // age={20}
+        // isMarried={true}
+        // hobbies={["Singing", "Sleeping"]}
+        // userLocation={{ city: "Paris", country: "France" }}
 
-//         // If you want to send all props as one object
-//         user={{
-//           name: "Eric",
-//           age: 20,
-//           isMarried: true,
-//           hobbies: ["Singing", "Sleeping"],
-//           location: { city: "Paris", country: "France" },
-//         }}
-//       />
-//     </main>
-//   );
-// };
+        // If you want to send all props as one object
+        user={{
+          name: "Eric",
+          age: 20,
+          isMarried: true,
+          hobbies: ["Singing", "Sleeping"],
+          location: { city: "Paris", country: "France" },
+        }}
+      />
+    </main>
+  );
+};
 
 /* --------------------- Conditional rendering via props -------------------- */
 

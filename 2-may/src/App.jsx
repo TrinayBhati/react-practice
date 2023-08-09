@@ -57,7 +57,7 @@ const UserProfile = (props) =>{
       <p>City: {userLocation.city}</p>
 */}
 
-      <p>NAME : {user.useruserName}</p>
+      <p>NAME : {user.userName}</p>
       <p>AGE: {user.age}</p>
       {user.isMarried && <p>IS MARRIED : Yes</p>}
       <p>HOBBIES: {user.hobbies[1 ]}</p>
@@ -96,7 +96,7 @@ const App = ()=>{
     {/*<Acordion title="DISCOUNT" label="50% or more" />
     <Acordion title="MICROPHONE" label="Yes" />*/}
 
-   {/* <UserProfile
+    {/*<UserProfile
       // userName="Trinay" 
       // age={20} 
       // isMarried={true} 
