@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Namaste React</title>
-</head>
-<body>
-	<h1>header</h1>
- 	<div id="root"></div>
- 	<h2>footer</h2>
-</body>
-<!-- using plain js to print hello world -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Namaste React</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<h1>header</h1>
+		<div id="root">Not Rendered</div> 
+		<!-- we're telling react to only run inside this, this is the root element.-->
+		<!-- we can segregate the code, use react in between plain html css -->
+		<!-- in case there are elements in root react would override that. that's wh y it's called react root/base-->
+		<h2>footer</h2>
+		<!-- using plain js to print hello world -->
 
-<!-- <script>
-	const heading = document.createElement("h1");
-	heading.innerHTML = "HELLO WORLD from JAVASCRIPT!";
+		<!-- <script>
+			const heading = document.createElement("h1");
+			heading.innerHTML = "HELLO WORLD from JAVASCRIPT!";
 
-	const root = document.getElementById("root");
+			const root = document.getElementById("root");
 
-	root.appendChild(heading);
-</script> -->
+			root.appendChild(heading);
+		</script> -->
 
-<!-- Here we are injecting react in web page using CDN -->
-	<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<!-- Here we are injecting react in web page using CDN -->
+		<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 
-<!-- react@18 means latest version of react -->
-	<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-	<script>
-		
-		const heading = React.createElement("h1", {}, "Hello World from React");
-	// need to specify that this root is the base element, so we use ReactDOM the api given to do this work
-
-		// console.log(heading); 
-		// shows object made by react 
-		
-		const root = ReactDOM.createRoot(document.getElementById("root"));
-	// put the element we want as root/ base element	
-
-		root.render(heading);
-	// passing the react element inside the DOM, render method takes element and modifies the DOM	
-	</script>
+		<!-- react@18 means latest version of react -->
+		<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="App.js"></script>
+	</body>
 </html>

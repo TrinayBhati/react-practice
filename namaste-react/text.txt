@@ -1,0 +1,12 @@
+React is just a piece of js code written by Meta/Facebook developers
+
+
+
+
+HW class 1.
+	what is emmet
+	what is cdn
+	what is crossorigin
+	what is DOM
+
+	async and defer yt video akshay saini
