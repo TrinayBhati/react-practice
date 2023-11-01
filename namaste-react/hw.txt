@@ -1,0 +1,19 @@
+===================================class 1======================================
+
+	what is emmet
+	what is cdn
+	what is crossorigin
+	what is DOM
+
+	async and defer yt video akshay saini
+
+===================================class 3======================================
+ 	
+ 	difference in ~ and ^ in npm
+ 	http and https
+ 	different types of script
+
+===================================class 4======================================
+
+	difference in html jsx
+	reconcillitation diffing algo

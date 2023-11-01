@@ -1,12 +1,96 @@
+===================================class 1======================================
+
 React is just a piece of js code written by Meta/Facebook developers
 
+use id root in html elements
+	1. we're telling react to only run inside this, this is the root element
+	2. we can segregate the code, use react in between plain html css 
+	3. in case there are elements in root react would override that. that's wh y it's called react root/base
+	4. createRoot is an API, it is a function basically but it can be an interface 
 
+===================================class 3======================================
 
+in React.createElement
+	1. html tag name
+	2. attributes to be attached to the tag, can be anything, called props in React
+	3. what we want inside the tag, can be text or other html tags, pass array if we want nested elements
 
-HW class 1.
-	what is emmet
-	what is cdn
-	what is crossorigin
-	what is DOM
+making production ready react app
+	1. bundlers - webpack, parcel, vite are one of the bundler(package)
+			babel is not bundler
+		in create-react-app bund used is webpack.
+	2. package manager - npm/ yarn used to install packages 
+	3. igniting the aplication
+		npm init = inintilize the app = gives package manager package.json
+			asks package name, entry, point, description, test command and all so we use 
+		npm init -y
+	4. react app is huge app which need so many functionalities coming from several packages which are provided by npm(package manager)
+	5. npm install -D parcel installing using -D or --save-dev means installing package as a dev dependency in dev environment
+		dependency means all the package our project needs.
+	6. without any ^ or ~ means we need to stick to this version
+		if we use ^ means it'll upgrade our versions
+		if we use ~ means it'll 
+	7. what is package-lock.js and package.json
+		package-lock locks the versions takes snapchot of the dependencies
+			never put in gitignore
+		package-lock keeps trrack of the package also keeps hash of the installed package same on machine and server
+	8. whenever we install anything it gets installed in node modules
+	9. no need to push node modules gitignore package-lock keeps track of the versions of all the package
+	10. npm install react - install react don't use cdn
+	11. start app with npx parcel index.html give the entry point of app
+		creates a build and host on a server
+		if we use npx parcel build index.html it  creates a production ready app.
+			i. using this parcel pushes and minimizes the files in dist
+			ii. parcel bundles and minified the code in dist
+	12.	// Browser scripts cannot have imports or exports.// 
+		while parsing through html and js browser don't know what import is 
+		cannot import scripts inside web, can import export modules
+	13. You should instead import it from "react-dom/client".
+-------Parcel--------
+	14. creates server loads it. hot module replacement - parcel checks through all the changed modules and files and reloads.
+		parcel uses file watcher algorithm written in c++ to keep track of files
+	15. parcel use extra space created by it in .parcel-cache to use all these functionalities.
+	16. parcel clears up the consoles and cleans code does image optimization
+	17. production build comes to the website. node modules are mininfid 
+	18. parcel does caching while development - makes the build once and caches it so the subsequent r     eloads and builds don't take much time
+	19. parcel does compression - reduces avaiable name and stuff 
+	20. makes files compatible with older version of browser - adds pollyfils
+	21. with pacel we can build app on https on local machine	
+		use command npx parcel index.html --https
+	22. parcel-cache should be inside gitignore - anything which we can generate on server would be here like node modules dist folder
+	23. consistent hashing algorithm - 
+	26. tree shaking - removing unwanted code 
+			clean code is take code and make it cleaner
+	24. transitive dpendencies - we have our pa65ckage manager which handles and takes care of our transitive dependencies of our code.
+		package dependent on other package using other dependency that is using some other dependencies
+	25. // https://browserslist.dev/
+ 	 "browserslist" : [ 
+    	"last 2 versions"
+  		] //  write in package json
+	26. parcel babel does the jobb and pushes the optimized readble code by browsers to server and that's what user sees
 
-	async and defer yt video akshay saini
+===================================class 4======================================
+	
+	1. pollyfils - a code replacement of newer version of code
+		if old browser don't understand map filter then it's converted to lower basic code
+	2. babel converts the code so it can be undersdtood by older version of browser - checks the browserlists and make our code compatible
+		babel is js node package - reads our code converts in to older js code if needed
+    3. for multiple child element we pass keys as props, react keeps track of elements using keys
+    4. render - updating smthn in dom   
+	5. React.createElement gives us an object which is then converted to html and react puts in on dom
+-------jsx--------
+	6. javascript xml but it's never written anywhere
+	7. jsx is not in html inside javascript, it's html like syntax
+	8. babel takes this jsx and gives us normal js code, creates abstract syntax tree and in compilation phase converts it. bable is transpiler does transpilation
+		converts new js to older and jsx to js
+	9. babel is a js library, converts jsx to createelement, comes along with parcel // https://babeljs.io/
+		babel is needed to use jsx
+	10. jsx => React.createElement => Object => HTML(DOM)
+	11. jsx advantage - readablity, maintainability, developer freindly
+	12. transitive dependencies versions are stored in package-lock inside node modules 
+	13. components - functional components - javascript function returning jsx - caps first letter
+					class based components
+	14. simple js is written in {}
+	15. jsx sanitizes removes trackers and attckers so user can be safe from XXS attack(cross-site scripting)
+	16. using component inside component is called component composition/ composing component
+	17. components are basic functions so they are hoisted as in js
