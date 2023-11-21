@@ -45,3 +45,4 @@ console.log("header", Header);
 root.render(heading); // can render just a variable, in case of a functional component we wrap it in tag
 
 root.render(<Header />); // if we use two root renders then last one overwrites
+root.render(Header()); // same thing root.render requires a react code
