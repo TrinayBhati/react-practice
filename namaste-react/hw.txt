@@ -17,3 +17,58 @@
 
 	difference in html jsx
 	reconcillitation diffing algo
+
+===================================class 5======================================
+
+	join method js
+	difference in map and forEach
+	react fibre
+	can we use index as key 
+
+===================================class 6======================================
+
+	file structure in react
+	synthetic events
+	one way data binding in react
+	search bar in js and h1 showing whatever written in box showing real time in js
+
+===================================class 8======================================
+
+	ajax
+	study fetch 
+	cors video akshay
+	optional chaining
+	shimmer design loading skeleton
+	js expression vs js statement
+	why data.json and await twice n fetch and promises
+
+===================================class 9======================================
+
+	why we use cdn to host images
+	object.values
+
+===================================class 10======================================
+
+	why we use extends in classes in js
+	why we use super(props) in class based components
+	how setState works 
+	why can we make componentDidMount async and not callback in useEffect
+
+===================================class 12======================================
+	
+	scss
+	who maintains material ui
+	post css pre css
+	what are default things in tailwindConfig
+
+===================================class 13======================================
+
+	react profiler
+	can we have nested context, context inside context
+
+===================================class 15======================================
+
+
+
+
+	

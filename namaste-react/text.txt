@@ -10,13 +10,14 @@ use id root in html elements
 
 ===================================class 3======================================
 
-in React.createElement
+-----------------React.createElement-----------------
 	1. html tag name
 	2. attributes to be attached to the tag, can be anything, called props in React
 	3. what we want inside the tag, can be text or other html tags, pass array if we want nested elements
 
-making production ready react app
+--------making production ready react app---------------
 	1. bundlers - webpack, parcel, vite are one of the bundler(package)
+			- bundle our code - parcel produces one js file
 			babel is not bundler
 		in create-react-app bund used is webpack.
 	2. package manager - npm/ yarn used to install packages 
@@ -67,12 +68,18 @@ making production ready react app
  	 "browserslist" : [ 
     	"last 2 versions"
   		] //  write in package json
-	26. parcel babel does the jobb and pushes the optimized readble code by browsers to server and that's what user sees
+	26. parcel babel does the job and pushes the optimized readble code by browsers to server and that's what user sees
+		npm install babel-plugin-transform-remove-console --save-dev (command for removing console removal babel library)
+	27. make .babelrc file then use plugin from documentation npm
+		{
+ 			"plugins": [ ["transform-remove-console", { "exclude": [ "error", "warn"] }] ]
+		}
 
 ===================================class 4======================================
 	
 	1. pollyfils - a code replacement of newer version of code
 		if old browser don't understand map filter then it's converted to lower basic code
+--------------babel---------------
 	2. babel converts the code so it can be undersdtood by older version of browser - checks the browserlists and make our code compatible
 		babel is js node package - reads our code converts in to older js code if needed
     3. for multiple child element we pass keys as props, react keeps track of elements using keys
@@ -84,13 +91,364 @@ making production ready react app
 	8. babel takes this jsx and gives us normal js code, creates abstract syntax tree and in compilation phase converts it. bable is transpiler does transpilation
 		converts new js to older and jsx to js
 	9. babel is a js library, converts jsx to createelement, comes along with parcel // https://babeljs.io/
-		babel is needed to use jsx
+		babel is needed to use jsx - npm install --save-dev @babel/core
 	10. jsx => React.createElement => Object => HTML(DOM)
 	11. jsx advantage - readablity, maintainability, developer freindly
 	12. transitive dependencies versions are stored in package-lock inside node modules 
 	13. components - functional components - javascript function returning jsx - caps first letter
 					class based components
-	14. simple js is written in {}
+	14. simple js expression is written in {}
 	15. jsx sanitizes removes trackers and attckers so user can be safe from XXS attack(cross-site scripting)
 	16. using component inside component is called component composition/ composing component
 	17. components are basic functions so they are hoisted as in js
+
+===================================class 5======================================
+
+	1. react in entirety is written inside a single root so we can use it in any app say entire app is in vanilla js and we can have just the footer in react.
+	2. jsx can only have one parent, use react fragments <> </>
+	3. React.fragment os <></> is a component imported by react -> can use nested fragments <><></></>
+	4. in inline css style takes an object
+	5. config driven ui - backend controls what to show in diferent regions
+	6. props - properties - some data passed between components 
+		pass in arguments - recieve parameters
+	7. whatever we pass in pass props on the recieveing end comes as props (object)
+---------------virtual dom------------------
+	8. virtual dom is not only in react, it's a software engeneering concept 
+		we keep a representation of og DOM with us
+			need virtual dom for reconcillitation
+	9. reconcillitation method - process of the algorithm diff algo - to find difference in trees (actual dom and virtual dom) and finds and updates/ re-renders that portion
+		when we have multiple same child tags then it gets confusing for react
+	10. react fibre - new reconcillitation engine came in react 16
+	11. keys help in differentiating from nodes 
+		no key <<<<< index key(last resort) <<<<<<<<<< unique key(best practice)
+
+===================================class 6======================================
+
+	1. for modular approach we use folder structure 
+	2. move js files in src
+----------export import---------------
+	3. exporting
+		i. default export - export default Title - only exports one thing - import is done without {}
+		ii. named export - export const Title / export function - used for multiple files - use {} in import
+			in named import we can import like * as this from "that.js" then use .notation to access different exports
+	4. good confention to put all the hardcoded things stationary things in config.js file
+---------------states--------------
+	5. input tags are different in react and html
+	6. every component in react maintains a state.
+	7. hooks - just a normal function - named import from react - 
+		useState function returns an array - first element is a local state variable - second is function to modify that state variable.
+		- Your state is a hook that react gives us to create local state variables inside functional components - never use outside component
+		- html onchange - react onChange
+		- for ui change use state variables
+		- Never create useState inside if else or loops, always on top. 
+	8. input doesn't work like in html in react - we have to manual data binding in react.
+		in react there's one way data binding 
+	9. in case of normal variables no matter what changes react won't update dom but in case of state variables react updates dom and we see changes 
+		when we want our variables to be in sync with ui use state variables.
+		whenever changes in state variables react automatically rerenders 
+	10. react is fast as it changes the state node element whatever changes instaed of entire dom tree.
+	11. component re renders when state changes or props changes
+
+===================================class 8======================================
+
+	1. whenever there is a change in a state, the virtual dom tree is modified react rerenders the component and the node that changed is updated.
+		in js virtual dom is basically an object
+	2. why is react fast?
+		bc of it's fast dom manipulation, dom manipulation is very expensive operation
+	3. react does not track normal variables, only state variables to keep ui in sync. 
+	4. whenever a state changes, react re-renders entire component, refreshes it quickly 
+		- react re-renders and creates a virtual dom then compares with actual dom tree and update the node element which is heavy operation
+----- project architecture --------		
+		5. microservices architecture 
+			- multiple codebase
+			- multiple react projects are combined to make large scale applications like uber, swiggy
+			- various small projets, different for ui dit for authentication differeat for logs
+			- chaning a single button only needs to deploy that single ui project.
+			- easy to maintain 
+			- seperation of concern, or single responsibility, every microservice needs to manage it's application.
+		6. monolith architecture 
+			- single codebase - single big aplication
+			- ui, api, authentication, sms, notification everything in one project
+			- even for changin one button on ui, build and deploy entire project
+	7. we use microservice architecture and make single ui app using react. 
+	8. user => loads page => render ui => load API => update API
+--------- useEffect -------------------------	
+	9. useEffect takes callback function and array of dependency
+			- useEffectalways runs after component is rendered
+			- can use multiple useEffect
+		empty array - runs once after first render
+		no array - runs every re render
+		passed dependency - runs when that dependency changed and after initial render
+	- in API call first in itial value of state is rendered then api is called. then api is called and it's updated on ui
+	- first render then useEffect
+	- render whatever we have first then call API then re-render and update it on page 
+	- return a function from useEffect - kind of unmounting 
+		- clear destroy whatever heavy running operations
+		- clean up function
+	10. can't call swiggy or any other api - browser can't let us call swiggy or api from localhost - use cors cross origion extension
+	11. (https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/) this is image base url here me-assets is sdn
+	
+===================================class 9======================================
+
+	1. Never create a component inside a component, We can use another component inside another component, tho. It is possible but don't. The component would be created each and every time the parent component re-renders..
+------------Routing--------------------	
+		- react-roputer-dom library is developed by remix not facebook
+	2. install react-router-dom npm i react react-router-dom
+	3. import createBrowserRouter from react-router-dom
+	4. configure createBrowserRouter 
+				- path = url that'l be changed 
+				- element = component to be shown.
+				- errorElement = whatever want to load in case of error
+		- make config instanec below the component - no hoisting - works line by line
+		- takes array of objects with different routes
+		- pass in children object to use nested routes - just like used Layout component in Amazon clone and hotel booking divyansh moonat.
+		- then import <Outlet/> and use where we want to render components conditionally 
+			- outlet is nowhere to be found in html - just gets filled with what we pass
+			- outlet should always be made in parent of children
+	5. import RouterProvider
+		- pass RouterProvider to where we're rendering root
+		- pass a prop router to the component RouterProvider
+		- pass the config just created using createBrowserRouter as prop
+	6. import useRouteError on ErrorPage
+		- basically a hook - basic function
+		- make an instance 
+		use that instance it has all the necessary error data we need
+	7. we can use anchor tag and pass in component in href - not preferable - reloads whole page
+	8. import Link in Header from react-router-dom use Link instead of <a/> 
+		- pass the component as prop to Link component to="<component/>" 
+		- at base level router-dom is using anchor tag only
+	9. 2 types of routing 
+		- client side routing - all pages are with us just need to load them - used in SPA
+		- server side routing - all pages come from server - old way
+	10. single page application (SPA) - does not load on every click, just changes the ui
+	11. Dynamic routing 
+		- just pass in chidren or as new object  
+		- difference is use  /:variables here
+			- import useParams where we want to access the variable passed 
+				- with useParams we can read the dynamic url 
+			- useParams gives us object - destructure and use the id/variable
+	12. to make nested routed we can use children of children use children array of object inside children
+		- / means from the root, so in case of children we don't need to add it		
+			- localhost:1234/parent/{children}
+			- in case of first children it works as they're still on root level, but not in case of nested children
+
+===================================class 10======================================
+
+-----------Class Based Components--------------
+	1. import React from "react or named import Component from "react"
+		- write keyword class
+		- write component name 
+		- write extends then React.Component 
+			- put render method inside - only mandatory method
+			- this render method returns some jsx
+			- render method returns some jsx which is rendered into dom
+	2. export default or named
+	3. call it same as another component
+	4. to recieve props
+		- in function components we use props object and access it using props.passed
+		- in class components we use this.props object and access it using this.props.passed
+	5. make a constructor recieving props, use super(props) 
+		- constructor is a place used for initilization
+		- inside this is where we create state - as constructor runs first
+		- this.state is the object with state variables inside
+		- entire state is a big object
+	6. to change state 
+		- onCLick takes callback function
+		- use this.setState pass in object to the method 
+		- update all states together in an object
+		- we do not mutate the state directly
+		- never do this.state = something
+---------lifecycle----------
+	7. constructor then render then componentDidMount(mount means to load)
+	8. we call api inside useEfect in functional components - useEffect runs after render	
+		- first we render whatever we can - then call api - then update what we got - it re renders then also
+	9. same principle is used in class based component 
+		- render first - then api call - then updated
+	10. theree is one other method componentDidMount() which is called after render where we call API
+	11. example of a component being called in class based component which triggered it's lifecycle	- all these below are console logs from akshay's lecture
+		- Parent - constructor
+		- Parent - render
+		- Child - constructor
+		- Child - render
+		- Child - componentDidMount
+		- Parent - componentDidMount
+	12. two phases 
+		- render phase - constructor is called then render
+			- constructor - states variables 
+			- render - converts jsx to html using babel - generates core html
+				- after render react is ready to put things on DOM, initial update happens
+		- commit phase - componentDidMount is called when everything is on dom - update phase
+			- after initial update this is called - after first render 
+			- things are on dom
+			- update whatever is in componentDidMount
+	13. render phase is fast- react batches up everything and completes render then moves onto commit phase
+	14. using async in componentDidMount when API is called it waits for data to be fetched and delay that componentDidMount
+	15. on about page the time after refreshing where we don't see the github pfp is the time when the component is mounted and in next render updating cycle it gets updated.
+	16. componentDidUpdate() is called on every subsequent render 
+	17. componentWillUnmout() runs when the component is destroying 
+		- when it is about to unmount
+		- when we go to another page or remove it via any button 
+			- we need to clear some things when leaving page, like clear a setInterval when we moved out of a page. makes our app heavy
+			- always clean up in function based also 
+				- return a function from useEffect
+	  
+===================================class 11======================================
+	
+	1. why we use custom hooks or functions?
+		- modularity (broken code in meaningful peices), readablity, reusability
+			- use utils or a common folder to use common reusable functions  
+	2. make a new file for each hook.
+	3. repetetive functions inside hook - extracting api call from MenuPage
+	4. custom hook - helper function - components return jsx - custom hooks does not
+-------------Lazy loading-------------
+	5. parcel or other bundlers bundle our code our components and js files into one js file. 
+		- bundling is good to an extent with logical bundles. 
+		- if we have 100s of components then loading one js file takes time and is heavy.
+	6. instead of having a single huge js file we'll split it 
+		- chunking - code splitting - dynamic bundling - lazy loading - on demand loading - dynamic import
+			- whatever we want to be lazy loaded
+			- where we are importing the component
+			- use lazy() coming from react library 
+			- lazy takes a callback function with import in it
+		- react tries to render component when it's not even there for first time 
+		- then react suspends the operation
+	7. on demand loading -> upon render -> react suspends loading
+		- use Suspense component from react wrap the lazy loaded component and it works
+		- pass in fallback prop - whatever we want to show until our component is loaded
+			- basic working of this is the import statement is kind of a promise and after using suspense react waits for that promise
+		- no need for chunking in small scale applications  
+		- never dynamically load component inside another component - import below imports
+
+===================================class 12======================================
+
+	1. reason to use css frameworks 
+		- to write optimized css
+		- saves time faster development
+	2. scss and saas - at the end compiled to pure basic css
+		- reusability
+		- variables
+		- nesting
+	3. in inline css we pass in js object to style inside jsx that's why 2 curly braces {{}}
+		- difficult to maintain
+		- not reusable
+		- it is hardcoded
+		- job of processing inline css is heavy for browsers
+	4. css libraries mui, chakra ui, ant design- these are normal npm packages
+		- pros of using libraries
+			- reusable
+			- saves lot of time
+			- makes development faster
+			- gives us consistent ui - everything will look similar
+			- takes care of responsiveness
+		- cons of using libraries	
+			- makes our bundle size heavy
+			- we loose control of our design
+			- personal customization is hard
+	5. styled components - writing css in a component passing it like props
+	6. tailwind css	
+			- pros of using tailwind
+				- inline css 
+				- reusable
+				- less bundle size
+				- flexible ui - alot of customization available
+				- easy to debug
+			- cons of tailwind
+				- high learning curve
+				- not easy to read - so many classes
+		- changes the default behaviour of some normal tags
+		- everything will be a new class
+	7. initstarting tailwind into our app
+		- command npm i -D tailwindcss postcss
+		- initilize command npx tailwindcss init 
+			npx is to execute it directly
+		- put what files we want tailwind to scan and run in via tailwind.config file 
+			content: ["./src/**/*.{html,js,jsx}"],
+		- create .postcssrc file like .babelrc to configure this
+				{"plugins": {"tailwindcss": {}}	}
+		- in index.css add 
+			@tailwind base; @tailwind components; @tailwind utilities;
+				- whenever bundler is reading our css from this file @tailwind and use it
+		- [] square bracket use it when the number we want is not there
+
+===================================class 13======================================
+
+	1. jsx is converted to big js object 
+	2. reconcillitation - diff in virtual dom is in sync with the og dom
+	3. ui is managed with state and props
+	4. state vs props 
+		- prop is argument - state is local variable
+		- props are passed from one component to another - props are like local state of our parent
+	5. passing down props from parent to child child n so on when not every child needs that prop, called props drilling - drilling all the components to access the props
+	6. data flows one way - data flows from parent to children
+		- how we can access it from child to parent
+			- using local storage - bad approach
+			- making custom hooks and calling them - not optimal
+			- lifting the state up used in Instant component
+	7. context is a central store - like data store for states globally
+		- create a file for context store 
+		- import createContext from react
+		- call the function createContext pass in whatever we want to have stored globally
+		- export it
+		- import useContext in whatever file we want to use context store
+		- pass in the exported context name to useContext and store it in a variable and use 
+		- in class components we don't have hooks we use UserContext as a component and use it by UserContext consumer
+		- to use dynamic states when we want the state to change throughout app, we use UserContext.Provider and wrap all the components we want to use it in inside it. 
+		- the static value we gave to UserContext is default, .Provider just overrides it
+		- can give the context a display name so react dev tools can also track it
+	8. router also use context behind the scenes, we can see in react dev tools .Provider
+	
+===================================class 15======================================
+
+	1. Redux - state management library - more example of such libraries mobax
+	main job is to maintain / manage store 
+		- redux tolkit - new way of writing redux 
+		- simplified way to write redux code 
+		- suggested by redux
+		- command - npm i @reduxjs/toolkit
+	2. another library we need is react-redux that is a bridge between react and redux
+		- command - npm i react-redux
+	3. redux store 
+		- big object having different sections
+		- all components can access store
+		- store is different than web app - central place - global
+		-  only one store but many sections
+			- slice is a portion of store
+			- different multiple slices
+		- components cannot directly modify store
+			- need to dispatch an action 
+			- action will call a function 
+				- this function is called reducer
+				- this function will modify our slice in store
+		- call selector to read the information /data of slice from store 
+			- selector - selecting the portion(slice) of the store
+			- selector is a hook
+			- using selector and reading data is called subscribing to the store
+				- in sync ui and data in store will update automatically
+	4. to change smthn in store - dispatch an action that calls a reducer function that will update the slice of store
+	5. starting redux with our app
+		- create store.js in utils
+			- import configureStore from toolkit
+			- configure it - it's an object - put slices in it
+			- export default store
+		- use provider wherever we want our store to be accessible
+			- import Provider from react-redux 
+			- wrap entire app in it and pass created store to it in store props
+		- import createSlice from toolkit and use it in a seperate file 
+			- configure it - make an objet put in slice name then initialState then put reducers 
+			- addItem is action which will call it's corresponding function in cartSlice
+				- takes in state(initial state) and action (logic)
+				- action.payload to use data from action
+			- export cartSlice.reducer 
+				- not reducers we made reducers but redux will merge it to one
+				- so we export it like that slice.reducer
+			- export actions as well
+			- put it in store
+
+
+		
+		
+			
+
+
+
+
